@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>FormValidator</title>
+  </head>
+
+  <body>
+    <div class="register-modal">
+      <div class="container">
+        <h1 class="modal-title">Register With Us</h1>
+
+        <form class="user-information">
+          <div id="input-form">
+            <h2>Username</h2>
+            <input
+              id="name"
+              type="text"
+              placeholder="Enter username"
+              autofocus
+            />
+            <div class="name-alert">&nbsp</div>
+          </div>
+          <div id="input-form">
+            <h2>Email</h2>
+            <input id="email" type="text" placeholder="Enter eamil" />
+            <div class="email-alert">&nbsp</div>
+          </div>
+          <div id="input-form">
+            <h2>Password</h2>
+            <input id="password" type="text" placeholder="Enter password" />
+            <div class="password-alert">&nbsp</div>
+          </div>
+          <div id="input-form">
+            <h2>Confirm Password</h2>
+            <input
+              id="password-again"
+              type="text"
+              placeholder="Enter password again"
+            />
+            <div class="password-again-alert">&nbsp</div>
+          </div>
+        </form>
+
+        <div class="submit-button-form">
+          <button>Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
