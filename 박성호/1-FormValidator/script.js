@@ -6,96 +6,88 @@ const $confirmPasswordInput = document.querySelector(
   '.form-input.confirmPassword'
 );
 
-const checkUsername = () => {
-  const inputValue = $usernameInput.value;
-  const $errorMessage = $usernameInput.nextElementSibling;
-  if (inputValue.length < 3) {
-    $usernameInput.classList.remove('form-input-success');
-    $usernameInput.classList.add('form-input-error');
-    $errorMessage.classList.remove('hidden');
-    return;
+// error 상태일때
+const changeToError = ($input, errorMessageString) => {
+  const $errorSpan = $input.nextElementSibling;
+
+  $input.classList.remove('form-input-success');
+  $input.classList.add('form-input-error');
+  $errorSpan.classList.remove('hidden');
+
+  if (errorMessageString) {
+    $errorSpan.innerHTML = errorMessageString;
   }
-  $usernameInput.classList.remove('form-input-error');
-  $usernameInput.classList.add('form-input-success');
-  $errorMessage.classList.add('hidden');
 };
 
-const checkEmail = () => {
-  const inputValue = $emailInput.value;
-  const $errorMessage = $emailInput.nextElementSibling;
+// success 상태일때
+const changeToSuccess = ($input) => {
+  const $errorSpan = $input.nextElementSibling;
 
+  $input.classList.remove('form-input-error');
+  $input.classList.add('form-input-success');
+  $errorSpan.classList.add('hidden');
+};
+
+// username 길이 확인
+const checkUsername = ($usernameInput) => {
+  if ($usernameInput.value.length < 3) {
+    changeToError($usernameInput);
+    return;
+  }
+  changeToSuccess($usernameInput);
+};
+
+// 유효한 email 인지 확인
+const checkEmail = ($emailInput) => {
   //첫째자리에는 숫자 혹은 알파벳, 그 뒤로는 -, _, . 들어올 수 있고, 도메인 주소 전에 @ 들어와야 하고, .이 최소 하나 있어야 하며, 마지막 마디는 2~3 자리여야 한다.
   const emailRegExp =
     /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
 
   //string.match는 해당하는게 없으면 null을, 해당하는게 있으면 배열을 반환한다.
-  if (inputValue.match(emailRegExp) === null) {
-    $emailInput.classList.remove('form-input-success');
-    $emailInput.classList.add('form-input-error');
-    $errorMessage.classList.remove('hidden');
+  if ($emailInput.value.match(emailRegExp) === null) {
+    changeToError($emailInput);
     return;
   }
-  $emailInput.classList.remove('form-input-error');
-  $emailInput.classList.add('form-input-success');
-  $errorMessage.classList.add('hidden');
+  changeToSuccess($emailInput);
 };
 
-const checkPassword = () => {
-  const inputValue = $passwordInput.value;
-  const $errorMessage = $passwordInput.nextElementSibling;
-  if (inputValue.length < 6) {
-    $passwordInput.classList.remove('form-input-success');
-    $passwordInput.classList.add('form-input-error');
-    $errorMessage.classList.remove('hidden');
+// password 길이 확인
+const checkPassword = ($passwordInput) => {
+  if ($passwordInput.value.length < 6) {
+    changeToError($passwordInput);
     return;
   }
-  $passwordInput.classList.remove('form-input-error');
-  $passwordInput.classList.add('form-input-success');
-  $errorMessage.classList.add('hidden');
+  changeToSuccess($passwordInput);
 };
 
-// 위에 입력한 비밀번호와 같아야 한다.
-const checkConfirmPassword = () => {
-  const passwordInputValue = $passwordInput.value;
-  const confirmPasswordInputValue = $confirmPasswordInput.value;
-  const $errorMessage = $confirmPasswordInput.nextElementSibling;
-
-  if (confirmPasswordInputValue.length === 0) {
-    $confirmPasswordInput.classList.remove('form-input-success');
-    $confirmPasswordInput.classList.add('form-input-error');
-    $errorMessage.classList.remove('hidden');
-    $errorMessage.innerHTML = 'Confirm Password is required';
+// password와 같아야 하고, 길이가 6 이상이여야 한다
+const checkConfirmPassword = ($passwordInput, $confirmPasswordInput) => {
+  if ($confirmPasswordInput.value.length === 0) {
+    changeToError($confirmPasswordInput, 'Confirm Password is Required');
     return;
   }
 
-  if (confirmPasswordInputValue.length < 6) {
-    $confirmPasswordInput.classList.remove('form-input-success');
-    $confirmPasswordInput.classList.add('form-input-error');
-    $errorMessage.classList.remove('hidden');
-    $errorMessage.innerHTML = 'Confirm Password must be at least 6 characters';
+  if ($confirmPasswordInput.value.length < 6) {
+    changeToError(
+      $confirmPasswordInput,
+      'Confirm Password must be at least 6 characters'
+    );
     return;
   }
 
-  if (passwordInputValue !== confirmPasswordInputValue) {
-    $confirmPasswordInput.classList.remove('form-input-success');
-    $confirmPasswordInput.classList.add('form-input-error');
-    $errorMessage.classList.remove('hidden');
-    $errorMessage.innerHTML = 'Passwords do not match';
+  if ($passwordInput.value !== $confirmPasswordInput.value) {
+    changeToError($confirmPasswordInput, 'Passwords do not match');
     return;
   }
-
-  $confirmPasswordInput.classList.remove('form-input-error');
-  $confirmPasswordInput.classList.add('form-input-success');
-  $errorMessage.classList.add('hidden');
+  changeToSuccess($confirmPasswordInput);
 };
 
 const clickSubmitButton = (e) => {
   e.preventDefault();
-
-  checkUsername();
-  checkEmail();
-  checkPassword();
-  checkConfirmPassword();
+  checkUsername($usernameInput);
+  checkEmail($emailInput);
+  checkPassword($passwordInput);
+  checkConfirmPassword($passwordInput, $confirmPasswordInput);
 };
 
 $submitButton.addEventListener('click', clickSubmitButton);
