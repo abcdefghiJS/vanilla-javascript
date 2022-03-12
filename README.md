@@ -27,3 +27,12 @@
 1. 매주 토요일 자정까지 pr 올리기
 2. 일요일 스터디 시간 전까지 서로의 코드를 리뷰한다.
 3. 스터디 시간에 서로 리뷰한거에 대해서 이야기한다.
+
+<br>
+
+## 브랜치, 커밋, PR 방식
+
+1. main에서 브랜치 만들때는 ex) SungHo/1-FormValidator
+2. 자신의 브랜치에서 한글로 자기 이름 폴더 만들고, 코드 작성하기. ex) 성호/1-FormValidator/js, css, html ...
+3. 커밋메시지는 feat, fix 사용하기. ex) feat: html, css 구조 완성      fix: js 수정
+4. PR 제목은 자기 이름, 챕터 제목 사용하기. ex) [성호] 1-FormValidator
