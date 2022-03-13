@@ -91,3 +91,5 @@ const clickSubmitButton = (e) => {
 };
 
 $submitButton.addEventListener('click', clickSubmitButton);
+
+console.log('abc');
