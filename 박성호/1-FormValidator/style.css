@@ -1,3 +1,8 @@
+:root {
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+}
+
 .main-container {
   margin: 0;
   width: 100vw;
@@ -49,23 +54,23 @@
 }
 
 .form-input-error {
-  border-color: #e74c3c;
+  border-color: var(--error-color);
 }
 
 .form-input-error:focus {
-  border-color: #e74c3c;
+  border-color: var(--error-color);
 }
 
 .form-input-success {
-  border-color: #2ecc71;
+  border-color: var(--success-color);
 }
 
 .form-input-success:focus {
-  border-color: #2ecc71;
+  border-color: var(--success-color);
 }
 
 .form-span {
-  color: #e74c3c;
+  color: var(--error-color);
   font-size: 13px;
 }
 
