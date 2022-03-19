@@ -1,8 +1,8 @@
-const form = document.getElementById('form')
-const username = document.getElementById('username')
-const email = document.getElementById('email')
-const password = document.getElementById('password')
-const password2 = document.getElementById('password2')
+const $form = document.getElementById('form')
+const $username = document.getElementById('username')
+const $email = document.getElementById('email')
+const $password = document.getElementById('password')
+const $password2 = document.getElementById('password2')
 
 // 오류 
 function Error(input, message) {
@@ -25,17 +25,17 @@ function checkRequired(arr) {
             Error(item, `${item.id} is required.`) 
         } else { // 입력이 들어온 이후에 조건 판단
             switch (item) {
-                case username:
-                    checkLength(username, 3, 15)
+                case $username:
+                    checkLength($username, 3, 15)
                     break
-                case email:
-                    checkEmail(email)
+                case $email:
+                    checkEmail($email)
                     break
-                case password:
-                    checkLength(password, 6, 25)
+                case $password:
+                    checkLength($password, 6, 25)
                     break
-                case password2:
-                    checkPasswordsMatch(password, password2)
+                case $password2:
+                    checkPasswordsMatch($password, $password2)
                     break
             }
         }
@@ -54,8 +54,8 @@ function checkLength(input, min, max) {
 
 // 이메일 유효성 검사하는 함수
 function checkEmail(input) {
-    const regex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/
-    if (regex.test(input.value) === true) {
+    const emailRegex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/
+    if (emailRegex.test(input.value)) {
         Pass(input)
     } else {
         Error(input, `${input.id} is invalid.`)
@@ -71,8 +71,8 @@ function checkPasswordsMatch(pass, pass2) {
     }
 }
 
-form.addEventListener('submit', function(e) {
+$form.addEventListener('submit', function(e) {
     e.preventDefault()
 
-    checkRequired([username, email, password, password2])
+    checkRequired([$username, $email, $password, $password2])
 })
