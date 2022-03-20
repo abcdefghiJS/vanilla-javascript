@@ -1,9 +1,10 @@
 const movieContainer = document.querySelector(".container");
 const clickCount = document.querySelector("#count");
 const totalPrice = document.querySelector("#total");
+const movieList = document.querySelector("#movie");
 
 let count = 0;
-let price = 10;
+let price = movieList[0].value;
 
 const seatClick = (e) => {
   if (e.target.className === "seat") {
