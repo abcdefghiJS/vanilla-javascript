@@ -14,17 +14,17 @@
         <div class="form-control">
           <label for="username">Username</label>
           <input type="text" id="username" placeholder="Enter username" />
-          <small>Username must be at least 3 characters</small>
+          <small class="errorMessage">Username must be at least 3 characters</small class="errorMessage">
         </div>
         <div class="form-control">
           <label for="email">Email</label>
           <input type="text" id="email" placeholder="Enter email" />
-          <small>Email is not valid</small>
+          <small class="errorMessage">Email is not valid</small class="errorMessage">
         </div>
         <div class="form-control">
           <label for="password">Password</label>
           <input type="password" id="password" placeholder="Enter password" />
-          <small>Password must be at least 6 characters</small>
+          <small class="errorMessage">Password must be at least 6 characters</small class="errorMessage">
         </div>
         <div class="form-control">
           <label for="password2">Confirm Password</label>
@@ -33,7 +33,7 @@
             id="password2"
             placeholder="Enter password again"
           />
-          <small>Passwords do not match</small>
+          <small class="errorMessage">Passwords do not match</small class="errorMessage">
         </div>
         <button type="submit">Submit</button>
       </form>

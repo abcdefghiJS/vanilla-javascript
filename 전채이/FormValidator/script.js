@@ -73,9 +73,9 @@ function success(target) {
   target.className = "form-control success";
 }
 function error(target, message) {
-  const small = target.querySelector("small");
+  const errorMessage = target.querySelector(".errorMessage");
   if (message) {
-    small.innerHTML = message;
+    errorMessage.innerHTML = message;
   }
   target.className = "form-control error";
 }
