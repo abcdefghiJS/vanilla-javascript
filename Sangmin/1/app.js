@@ -1,18 +1,13 @@
 const submitButton = document.querySelector(".submit-button-form");
 const userInformation = document.querySelector(".user-information");
 
-const nameInput = userInformation.querySelector("#name");
-const emailInput = userInformation.querySelector("#email");
-const passwordInput = userInformation.querySelector("#password");
-const passwordAgainInput = userInformation.querySelector("#password-again");
-
 const nameInputForm = userInformation.querySelector("#name");
 const emailInputForm = userInformation.querySelector("#email");
 const passwordInputForm = userInformation.querySelector("#password");
 const passwordAgainInputForm = userInformation.querySelector("#password-again");
 
 const confirmUserNameFunction = () => {
-  const nameInputValue = nameInput.value;
+  const nameInputValue = nameInputForm.value;
   const nameAlert = userInformation.querySelector(".name-alert");
 
   if (nameInputValue.length >= 3) {
@@ -25,7 +20,7 @@ const confirmUserNameFunction = () => {
   return;
 };
 const confirmEmail = () => {
-  const emailInputValue = emailInput.value;
+  const emailInputValue = emailInputForm.value;
   const emailAlert = userInformation.querySelector(".email-alert");
 
   const atIndex = emailInputValue.indexOf("@");
@@ -48,7 +43,7 @@ const confirmEmail = () => {
   return;
 };
 const confirmPassword = () => {
-  const passwordInputValue = passwordInput.value;
+  const passwordInputValue = passwordInputForm.value;
   const passwordAlert = userInformation.querySelector(".password-alert");
 
   if (passwordInputValue.length >= 6) {
@@ -61,8 +56,8 @@ const confirmPassword = () => {
   return;
 };
 const confirmPasswordAgain = () => {
-  const passwordInputValue = passwordInput.value;
-  const passwordAgainInputValue = passwordAgainInput.value;
+  const passwordInputValue = passwordInputForm.value;
+  const passwordAgainInputValue = passwordAgainInputForm.value;
   const passwordAgainAlert = userInformation.querySelector(
     ".password-again-alert"
   );
