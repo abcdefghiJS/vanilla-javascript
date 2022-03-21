@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+* {
+  margin: 0;
+}
+
+body {
+  background-color: #f9fafb;
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.wrapper {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  width: 400px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.form {
+  padding: 30px 40px;
+}
+
+.form-validate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+}
+
+.form-validate.success input {
+  border: 2px solid green;
+}
+
+.form-validate.failure input {
+  border: 2px solid red;
+}
+
+button {
+  cursor: pointer;
+  background-color: #3498db;
+  border: 2px solid #3498db;
+  border-radius: 4px;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.form-validate small {
+  visibility: hidden;
+}
+
+.form-validate.failure small {
+  color: red;
+  visibility: visible;
+}
