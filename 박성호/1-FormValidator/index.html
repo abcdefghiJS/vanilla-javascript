@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Form Validator</title>
+  </head>
+  <body class="main-container">
+    <form class="register-form">
+      <h2 class="form-main-text">Register With Us</h2>
+      <section class="form-input-wrapper">
+        <label for="username" class="form-label">Username</label>
+        <input
+          id="username"
+          class="form-input username"
+          placeholder="Enter username"
+          type="text"
+        />
+        <span class="form-span hidden"
+          >Username must be at least 3 characters</span
+        >
+      </section>
+      <section class="form-input-wrapper">
+        <label for="email" class="form-label">Email</label>
+        <input
+          id="email"
+          class="form-input email"
+          placeholder="Enter email"
+          type="email"
+        />
+        <span class="form-span hidden">Email is not valid</span>
+      </section>
+      <section class="form-input-wrapper">
+        <label for="password" class="form-label">Password</label>
+        <input
+          id="password"
+          class="form-input password"
+          placeholder="Enter password"
+          type="password"
+        />
+        <span class="form-span hidden"
+          >Password must be at least 6 characters</span
+        >
+      </section>
+      <section class="form-input-wrapper">
+        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <input
+          id="confirmPassword"
+          class="form-input confirmPassword"
+          placeholder="Enter password again"
+          type="password"
+        />
+        <span class="form-span hidden">Confirm Password is required</span>
+      </section>
+      <button class="form-submit-button" type="submit">Submit</button>
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>
