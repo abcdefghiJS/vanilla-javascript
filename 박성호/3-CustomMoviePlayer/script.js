@@ -24,7 +24,7 @@ const renderCurrentVideoTime = () => {
   const minutes = Math.floor($videoPlayer.currentTime / 60)
     .toString()
     .padStart(2, '0');
-  const seconds = Math.floor($videoPlayer.currentTime - minutes)
+  const seconds = Math.floor($videoPlayer.currentTime - minutes * 60)
     .toString()
     .padStart(2, '0');
 
