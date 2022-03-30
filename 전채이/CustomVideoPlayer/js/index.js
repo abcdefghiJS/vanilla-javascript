@@ -3,11 +3,13 @@ const $video = document.querySelector('#video');
 const $playButton = document.querySelector('#play');
 const $stopButton = document.querySelector('#stop');
 const $progress = document.querySelector('.progress');
+const $timestamp = document.querySelector('.timestamp');
 
 $screen.addEventListener('click', toggleVideo);
 $video.addEventListener('timeupdate', handleProgress);
 $playButton.addEventListener('click', playVideo);
 $stopButton.addEventListener('click', pauseVideo);
+$video.addEventListener('timeupdate', updateTimestamp);
 $progress.addEventListener('change', moveProgressBar);
 
 function toggleVideo() {
@@ -23,10 +25,10 @@ function playVideo() {
 function pauseVideo() {
     $video.pause();
 }
-function moveProgressBar(e) {
-    console.log("change");
-    console.log(e);
-    const currentTime = $progress.value;
-    console.log(currentTime);
-    $video.currentTime = currentTime;
+function moveProgressBar() {
+    $video.currentTime = $progress.value * $video.duration / 100;
+}
+function updateTimestamp() {
+    const [min, sec] = String(($video.currentTime / 100).toFixed(2)).split('.');
+    $timestamp.textContent = `${min}:${sec}`;
 }
