@@ -40,11 +40,11 @@ select {
   height: 12px;
   margin: 3px;
 }
-.na {
+.available {
   background-color: #444451;
   cursor: pointer;
 }
-.na:hover {
+.available:hover {
   transform: scale(1.2);
 }
 .selected {
