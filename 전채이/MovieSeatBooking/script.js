@@ -32,8 +32,7 @@ function makeSeatLine(colNumArr) {
   colNumArr.forEach((colNum, index) => {
     for (let i = 0; i < colNum; i++) {
       const $seat = document.createElement("div");
-      $seat.classList.add("seat");
-      $seat.classList.add("na");
+      $seat.classList.add("seat", "available");
       $seatContainer.appendChild($seat);
     }
     index !== colNumArr.length - 1 ? makeBlank() : "";
@@ -53,12 +52,12 @@ function changeSelect() {
 }
 function clickSeat() {
   const $seat = event.target;
-  if ($seat.classList.contains("na")) {
+  if ($seat.classList.contains("available")) {
     setSelected($seat);
     return;
   }
   if ($seat.classList.contains("selected")) {
-    setNa($seat);
+    setAvailable($seat);
     return;
   }
 }
@@ -73,11 +72,11 @@ function setDefaultSeatContainer() {
     }
   });
 }
-function setNa(seat) {
+function setAvailable(seat) {
   if (seat.classList.contains("selected")) {
     selectedSeatNum--;
   }
-  seat.className = "seat na";
+  seat.className = "seat available";
   setSelectedSeatNum();
   setPrice();
 }
