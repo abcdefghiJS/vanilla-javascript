@@ -29,6 +29,11 @@ function moveProgressBar() {
     $video.currentTime = $progress.value * $video.duration / 100;
 }
 function updateTimestamp() {
-    const [min, sec] = String(($video.currentTime / 100).toFixed(2)).split('.');
+    const secs = getUnderPoint($video.currentTime / 100);
+    const min = getUnderPoint(Math.round(secs / 60) / 100);
+    const sec = getUnderPoint(secs % 60/100);
     $timestamp.textContent = `${min}:${sec}`;
+}
+function getUnderPoint(num) {
+    return Number(num).toFixed(2).split('.')[1];
 }
